@@ -119,13 +119,27 @@ const studyMinutesWeek2 = {
 // Expected output: [10, 15, 20, 45, 60, 65, 100]
 
 // b) Create the function that makes the test pass.
-// ß// Test Suites: 1 failed, 1 total
+
+// Psuedocode: Takes in an object
+// Input: Object have key value pairs. Have to iterate over values.
+// Output: Have to returns an array of the values sorted from least 
+//         to greatest.
+
+// Test Suites: 1 failed, 1 total
 // Tests:       1 failed, 1 total
 // ReferenceError: goya is not defined
 
-const goya = () => {
- return Object.values.sort((a, b) => a - b )
-}
+// 16 Nov: ReferenceError: sort is not defined
+// Test Suites: 1 failed, 1 total
+// Tests:       1 failed, 1 total
+// Used several Object methods....not seeing 
+// Object.values should return key values in numerical order
+// Not spending my whole day stuck
+// 
+
+// const goya = () => {
+//  return Object.values((value)).sort((a, b) => a[0].localeCompare(b[0]))
+// }
 
 // --------------------3) Create a function that takes in an array and returns an array of the accumulating sum. An empty array should return an empty array.
 
@@ -156,6 +170,82 @@ const accountTransactions3 = []
 // Test Suites: 1 failed, 1 total - 1st Att.
 // Tests:       1 failed, 1 total
 
-// const aSum = (arr) => {
-//   return sum => value => sum += value
-// }
+const aSum = (arr) => arr.forEach(sum => value => sum += value)(0) 
+
+// 16 Nov - Spending to much time not getting answer
+// Prompt: Create a function that takes in an array
+// Input: [array]
+// Output: Returns an array of the accumulating sum.
+// Behavior: Test Suites: 1 failed, 1 total
+//           Tests:       2 failed, 2 total
+//          
+// Technical: ● aSum › returns an array of the accumulating sum
+
+//            expect(received).toEqual(expected) // deep equality
+
+//            Expected: 100
+//            Received: [[Function anonymous], [Function 
+//                        anonymous],    //[Function anonymous], 
+//                      [Function anonymous]]
+
+//   153 | describe("aSum", () => {
+//   154 |   it("returns an array of the accumulating sum", () => {
+// > 155 |     expect(aSum(accountTransactions1)).toEqual(100, 83, 60, 
+//                                                                   51)
+// Technical:  ● aSum › returns an array of the accumulating sum
+//
+//     expect(received).toEqual(expected) // deep equality
+
+//     Expected: 100
+//     Received: [100, 83, 60, 51]
+
+//       153 | describe("aSum", () => {
+//       154 |   it("returns an array of the accumulating sum", () => {
+//     > 155 |     expect(aSum(accountTransactions1)).toEqual(100, 83, 
+//                                                            60, 51)
+//           |                                        ^
+//       156 |   })
+//       157 | })
+//       158 |
+//
+//       at Object.toEqual (code-challenges.test.js:155:40)
+
+//      Test Suites: 1 failed, 1 total
+//       Tests:       1 failed, 1 total
+//  ● aSum › returns an array of the accumulating sum
+
+//  TypeError: arr.map(...) is not a function
+
+// 171 | // Tests:       1 failed, 1 total
+// 172 |
+// > 173 | const aSum = (arr) => arr.map(sum => value => sum += value)(0) 
+//     |                                                            ^
+// 174 |
+// 175 |
+// 176 | // 16 Nov - Spending to much time not getting answer
+
+// at aSum (code-challenges.test.js:173:60)
+// at Object.aSum (code-challenges.test.js:155:12)
+
+// Test Suites: 1 failed, 1 total
+// Tests:       1 failed, 1 total
+
+// ● aSum › returns an array of the accumulating sum
+
+// TypeError: arr.forEach(...) is not a function
+
+// 171 | // Tests:       1 failed, 1 total
+// 172 |
+// > 173 | const aSum = (arr) => arr.forEach(sum => value => sum += value)(0) 
+//     |                                                                ^
+// 174 |
+// 175 | // 16 Nov - Spending to much time not getting answer
+// 176 | // Prompt: Create a function that takes in an array
+
+// at aSum (code-challenges.test.js:173:64)
+// at Object.aSum (code-challenges.test.js:155:12)
+
+// Test Suites: 1 failed, 1 total
+// Tests:       1 failed, 1 total
+// Snapshots:   0 total
+
