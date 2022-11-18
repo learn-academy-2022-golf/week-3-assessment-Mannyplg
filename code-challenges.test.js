@@ -86,36 +86,53 @@
 // There were several Fibonacci code snippets to select and run a Jest test with. I chose this example for several reasons. A class was created for the function. The keyword this and dot notation was use to to access the function class. Also show the differences in use cases of the for ...loop and recursion. Recursion is a function method that call on it self until it met condition or not needed. A for...loop is a control that wll execute a set of instructions until condition is true. AStill unable to create a successful test.
 
 
+// // //create a function that takes in a number -> code from assessment review.
+// function fibonacci(num) {
+//   //create an array with the first two numbers of the fibonacci sequence
+//   let fibArray = [1, 1]
+//   //create a for loop that iterates through the array
+//   for (let i = 2; i < num; i++) {
+//       //add the previous two numbers in the array and push them into the array    
+//       fibArray.push(fibArray[i - 2] + fibArray[i - 1])
+//   }
+//   //return the array
+//   return fibArray
+
 // --------------------2) Create a function that takes in an object and returns an array of the values sorted from least to greatest.
 // Hint: Check out this resource: Object.values() https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Object/values
 
 // a) Create a test with expect statements for each of the variables provided.
-// describe("goya", () => {
-//   it("returns an array of the values sorted from least to greatest.", () => {
-//     expect(goya(studyMinutesWeek1)).toEqual([15, 15, 20, 30, 30, 60, 90])
-//   })
-// })
+describe("goya", () => {
+  it("returns an array of the values sorted from least to greatest.", () => {
+    const studyMinutesWeek1 = {
+      sunday: 90,
+      monday: 30,
+      tuesday: 20,
+      wednesday: 15,
+      thursday: 30,
+      friday: 15,
+      saturday: 60
+    }
+    const studyMinutesWeek2 = {
+      sunday: 100,
+      monday: 10,
+      tuesday: 45,
+      wednesday: 60,
+      thursday: 20,
+      friday: 15,
+      saturday: 65
+    }
+    expect(goya(studyMinutesWeek1)).toEqual([15, 15, 20, 30, 30, 60, 90])
+    expect(goya(studyMinutesWeek2)).toEqual([10, 15, 20, 45, 60, 65, 100])
 
-const studyMinutesWeek1 = {
-  sunday: 90,
-  monday: 30,
-  tuesday: 20,
-  wednesday: 15,
-  thursday: 30,
-  friday: 15,
-  saturday: 60
-}
+  })
+})
 // Expected output: [15, 15, 20, 30, 30, 60, 90]
 
-const studyMinutesWeek2 = {
-  sunday: 100,
-  monday: 10,
-  tuesday: 45,
-  wednesday: 60,
-  thursday: 20,
-  friday: 15,
-  saturday: 65
+const goya = (object) => {
+  return Object.values(object).sort((a, b) => a - b)
 }
+ 
 // Expected output: [10, 15, 20, 45, 60, 65, 100]
 
 // b) Create the function that makes the test pass.
@@ -134,6 +151,19 @@ const studyMinutesWeek2 = {
 // Tests:       1 failed, 1 total
 // Used several Object methods....not seeing 
 // Object.values should return key values in numerical order
+
+// Stuck
+// 
+
+// 17 Nov: Test Suites: 1 failed, 1 total
+//         Tests:       1 failed, 1 total
+//         ReferenceError: object is not defined
+
+//         Test Suites: 1 passed, 1 total
+//         Tests:       1 passed, 1 total
+//         Test Suites: 1 passed, 1 total
+//         Tests:       1 passed, 1 total
+
 // Not spending my whole day stuck
 // 
 
@@ -150,11 +180,14 @@ const studyMinutesWeek2 = {
 // //     expect(greeter()).toEqual("Hello, LEARN student!")
 // //   })
 // })
-describe("aSum", () => {
+describe("addSum", () => {
   it("returns an array of the accumulating sum", () => {
-    expect(aSum(accountTransactions1)).toEqual(100, 83, 60, 51)
+    expect(addSum(accountTransactions1)).toEqual([100, -17, -23, -9])
+    expect(addSum(accountTransactions2)).toEqual([250, -89, 100, -96])
+    expect(addSum(accountTransactions3)).toEqual([])
   })
 })
+const addSum = (array) => array.map((sum => value => sum += value)(0))
 
 const accountTransactions1 = [100, -17, -23, -9]
 // Expected output: [100, 83, 60, 51]
@@ -169,6 +202,29 @@ const accountTransactions3 = []
 
 // Test Suites: 1 failed, 1 total - 1st Att.
 // Tests:       1 failed, 1 total
+
+// const aSum = (arr) => arr.forEach(sum => value => sum += value)(0) 
+
+// 16 Nov - 
+// Prompt: Create a function that takes in an array
+// Input: [array]
+// Output: Returns an array of the accumulating sum.
+
+// const addSum = (arr) => {
+//   for (let i = 1; i < arr.length; i++) {
+//     arr[i] = arr[i] + arr[i - 1]
+//     }
+//     return arr
+//  }
+// ___________________________________
+// Nov 18 - 
+// PsuedoCode- Create a function
+//      Returns an array of the accumulating sum
+//      .map() to return same length of changed values in array
+
+//Test Suites: 1 failed, 1 total
+//Tests:       1 failed, 1 passed, 2 total
+//Snapshots:   0 total
 
 const aSum = (arr) => arr.forEach(sum => value => sum += value)(0) 
 
